@@ -44,14 +44,33 @@ void BubbleSort(int *a,int n)
     }
 }
 
+//直接插入排序
+void InsertSort(int *a,int n)
+{
+    int i,j;
+    int tmp;
+    for(i=1;i<n;++i)
+    {
+        tmp = a[i];
+        j = i -1;
+        while(j>=0 && tmp<a[j])
+        {
+            a[j+1] = a[j];
+            --j;
+        }
+        a[j+1] = tmp;
+    }
+}
+
 
 int main()
 {
     int arr[] = {7,6,4,5,3,2,1,0,9,8};
 
     int length = sizeof(arr) / sizeof(arr[0]);
-    SelectSort(arr,length);
+    //SelectSort(arr,length);
     //BubbleSort(arr,length);
+    InsertSort(arr,length);
     for(int i=0;i<length;++i)
     {
         printf("%d ",arr[i]);
